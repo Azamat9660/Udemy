@@ -86,7 +86,7 @@ class CategoryDetailAPIView(generics.RetrieveAPIView):
 
 class CourseListAPIView(generics.ListAPIView):
     queryset = Course.objects.all()
-    serializer_class = CourseSerializer
+    serializer_class = CourseListSerializer
     filter_backends = [DjangoFilterBackend, SearchFilter, OrderingFilter]
     filterset_class = CourseFilter
     search_fields = ['course_name']
@@ -96,15 +96,15 @@ class CourseListAPIView(generics.ListAPIView):
 
 class CourseDetailAPIView(generics.RetrieveAPIView):
     queryset = Course.objects.all()
-    serializer_class = CourseSerializer
+    serializer_class = CourseDetailSerializer
 
 class CourseCreateAPIView(generics.CreateAPIView):
-    serializer_class = CourseSerializer
+    serializer_class = CourseListSerializer
 
 
 class CourseEDITAPIView(generics.RetrieveUpdateDestroyAPIView):
     queryset = Course.objects.all()
-    serializer_class = CourseSerializer
+    serializer_class = CourseListSerializer
 
 
 class LessonListAPIView(generics.ListAPIView):
@@ -201,7 +201,7 @@ class CertificateDetailAPIView(generics.RetrieveAPIView):
 
 class ReviewViewSet(viewsets.ModelViewSet):
     queryset = Review.objects.all()
-    serializer_class = ReviewSerializer
+    serializer_class = ReviewListSerializer
 
 
 class StudentReviewViewSet(viewsets.ModelViewSet):
