@@ -6,14 +6,6 @@ from django.db import models
 from phonenumber_field.modelfields import PhoneNumberField
 
 
-
-STATUS_CHOICES = (
-    ('admin', 'admin'),
-    ('student', 'student'),
-    ('teacher', 'teacher'),
-)
-
-
 GENDER_CHOICES = (
     ('мужкой', 'мужкой'),
     ('женский', 'женкский'),
@@ -26,7 +18,6 @@ class Profile(AbstractUser):
     phone_number = PhoneNumberField(region='KG')
     age = models.PositiveSmallIntegerField(validators=[MinValueValidator (14),
                                                        MaxValueValidator (50)], null=True, blank=True)
-    profile_status = models.CharField(max_length=32, choices=STATUS_CHOICES)
 
     def __str__(self):
         return self.username
