@@ -1,5 +1,3 @@
-from tutorial.quickstart.serializers import UserSerializer
-
 from .filters import CourseFilter
 from .models import *
 from .serializers import *
@@ -49,6 +47,7 @@ class LogoutView(generics.GenericAPIView):
 class ProfileListAPIView(generics.ListAPIView):
     queryset = Profile.objects.all()
     serializer_class = ProfileSerializer
+
 
 class ProfileDetailAPIView(generics.RetrieveAPIView):
     queryset = Profile.objects.all()
@@ -197,6 +196,8 @@ class CertificateListAPIView(generics.ListAPIView):
 class CertificateDetailAPIView(generics.RetrieveAPIView):
     queryset = Certificate.objects.all()
     serializer_class = CertificateSerializer
+
+
 
 class ReviewViewSet(viewsets.ModelViewSet):
     queryset = Review.objects.all()
